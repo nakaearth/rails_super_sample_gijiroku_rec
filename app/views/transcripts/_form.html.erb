@@ -1,0 +1,30 @@
+<%= form_for(@transcript, :html => { :multipart => true }) do |f| %>
+  <% if @transcript.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transcript.errors.count, "error") %> prohibited this transcript from being saved:</h2>
+
+      <ul>
+      <% @transcript.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :tag %><br />
+    <%= f.text_field :tag %>
+  </div>
+  <div class="field">
+    <%= f.label :descritpion %><br />
+    <%= f.text_area :descritpion %>
+  </div>
+  <div class="field">
+   <% unless @transcript.transcript != nil %>
+     <%=image_tag @transcript.transcript.url(:thumb) %> 
+   <% end %>
+   <%= f.file_field :transcript %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

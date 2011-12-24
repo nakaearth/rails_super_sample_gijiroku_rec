@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tag:</b>
+  <%= @transcript.tag %>
+</p>
+
+<p>
+  <b>Descritpion:</b>
+  <%= @transcript.descritpion %>
+</p>
+<p>
+  <%=image_tag @transcript.transcript.url(:medium) %>
+</p>
+
+
+<%= link_to 'Edit', edit_transcript_path(@transcript) %> |
+<%= link_to 'Back', transcripts_path %>
